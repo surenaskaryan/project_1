@@ -686,8 +686,9 @@ summary::-webkit-details-marker{display:none}
 a.contact:hover{transform:translateX(5px);border-color:var(--gold);box-shadow:var(--shadow)}
 .contact__ic{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;flex:none;background:rgba(179,150,63,.12);color:var(--gold-deep)}
 .contact__ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.contact__body{min-width:0}
 .contact__label{display:block;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
-.contact__value{display:block;font-weight:700;font-size:17px;line-height:1.45}
+.contact__value{display:block;font-weight:700;font-size:17px;line-height:1.45;overflow-wrap:anywhere}
 
 .contacts__messengers{display:flex;gap:12px;margin-top:4px}
 .msg{
@@ -815,7 +816,43 @@ a.contact:hover{transform:translateX(5px);border-color:var(--gold);box-shadow:va
 .mobilebar__btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .mobilebar__btn:active{background:var(--cream)}
 .mobilebar__btn--primary{background:linear-gradient(135deg,var(--gold-soft),var(--gold) 50%,var(--gold-deep));color:#1a1505}
-@media (max-width:760px){.mobilebar{display:flex;gap:8px}body{padding-bottom:0}}
+@media (max-width:760px){
+  .mobilebar{display:flex;gap:8px}
+  /* запас под нижнюю панель, иначе она перекрывает конец страницы */
+  .footer{padding-bottom:calc(28px + 76px)}
+}
+
+/* ============ УДОБСТВО НАЖАТИЯ НА СЕНСОРНЫХ ЭКРАНАХ ============ */
+@media (max-width:900px){
+  .footer__nav{gap:2px}
+  .footer__nav a,
+  .footer__contacts a:not(.footer__phone){padding-block:9px;display:inline-block}
+  .card__link{padding-block:9px}
+  .faq__item summary{padding-block:20px}
+  .form__policy .link,.footer__bottom .link{display:inline-block;padding-block:6px}
+  .langs__note a{display:inline-block;padding-block:6px}
+  .docs li span{padding-block:13px}
+}
+
+/* Жёсткие переносы строк из макета мешают на узких экранах */
+@media (max-width:700px){
+  .section__title br,.cta__title br{display:none}
+  .mapcard{min-height:340px}
+  .mapcard__pin{top:28%}
+}
+
+/* ============ САМЫЕ УЗКИЕ ЭКРАНЫ ============ */
+@media (max-width:380px){
+  .container{padding-inline:16px}
+  .contact{padding:16px 16px;gap:12px}
+  .contact__ic{width:42px;height:42px}
+  .contact__value{font-size:16px}
+  .card{padding:24px 20px 22px}
+  .lead{padding:22px 18px}
+  .hero__title{font-size:30px}
+  .section__title{font-size:26px}
+  .msg{padding:14px 10px;font-size:15px}
+}
 
 /* ============ МОДАЛЬНЫЕ ОКНА ============ */
 .modal{position:fixed;inset:0;z-index:150;display:grid;place-items:center;padding:20px}
@@ -850,8 +887,8 @@ a.contact:hover{transform:translateX(5px);border-color:var(--gold);box-shadow:va
 [data-reveal="scale"]{transform:scale(.94)}
 [data-reveal].is-visible{opacity:1;transform:none}
 
-/* Горизонтальный сдвиг на узких экранах даёт лишнюю прокрутку */
-@media (max-width:980px){
+/* Горизонтальный сдвиг у края контейнера даёт лишнюю прокрутку */
+@media (max-width:1300px){
   [data-reveal="right"],[data-reveal="left"]{transform:translateY(26px)}
 }
 
