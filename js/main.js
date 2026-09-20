@@ -446,7 +446,7 @@
       };
     }
 
-    function toWhatsApp(data) {
+    function toWhatsApp(data, hasFiles) {
       var lines = [
         'Здравствуйте! Заявка с сайта adverbum.ru',
         'Услуга: ' + data.service,
@@ -454,11 +454,21 @@
         'Телефон: ' + data.phone
       ];
       if (data.comment) lines.push('Комментарий: ' + data.comment);
+      if (hasFiles) lines.push('Скан документа отправлю следующим сообщением.');
       return CONFIG.whatsapp + '?text=' + encodeURIComponent(lines.join('\n'));
     }
 
-    function succeed(form) {
+    // Через WhatsApp клиент дожимает отправку сам — обещать доставку нельзя
+    function succeed(form, viaWhatsApp) {
       var success = $('.form__success', form);
+      if (success && viaWhatsApp) {
+        var title = $('.form__success-title', success);
+        var text = $('.form__success-text', success);
+        if (title) title.textContent = 'Откройте WhatsApp';
+        if (text) {
+          text.textContent = 'Мы подготовили сообщение с вашими данными — нажмите в чате «Отправить», и менеджер свяжется с вами.';
+        }
+      }
       if (success) success.hidden = false;
       form.reset();
       $$('.dropzone.is-filled', form).forEach(function (z) { z.classList.remove('is-filled'); });
@@ -488,24 +498,26 @@
 
         var btn = $('.js-submit', form);
         var data = collect(form);
+        var fileInput = $('input[type="file"]', form);
+        var hasFiles = Boolean(fileInput && fileInput.files && fileInput.files.length);
         if (btn) btn.classList.add('is-loading');
 
-        var finish = function () {
+        var finish = function (viaWhatsApp) {
           if (btn) btn.classList.remove('is-loading');
-          succeed(form);
+          succeed(form, viaWhatsApp);
         };
 
         if (CONFIG.formEndpoint) {
           fetch(CONFIG.formEndpoint, {
             method: 'POST',
             body: new FormData(form)
-          }).then(finish).catch(function () {
-            window.open(toWhatsApp(data), '_blank', 'noopener');
-            finish();
+          }).then(function () { finish(false); }).catch(function () {
+            window.open(toWhatsApp(data, hasFiles), '_blank', 'noopener');
+            finish(true);
           });
         } else {
-          window.open(toWhatsApp(data), '_blank', 'noopener');
-          setTimeout(finish, 600);
+          window.open(toWhatsApp(data, hasFiles), '_blank', 'noopener');
+          setTimeout(function () { finish(true); }, 600);
         }
       });
     });
