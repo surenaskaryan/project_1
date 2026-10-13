@@ -130,15 +130,20 @@
     var nums = $$('.js-count');
     if (!nums.length) return;
 
+    // 40000 читается хуже, чем 40 000
+    function format(n) {
+      return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+
     function run(el) {
       var target = parseInt(el.dataset.count, 10) || 0;
-      if (reduced) { el.textContent = target; return; }
+      if (reduced) { el.textContent = format(target); return; }
       var duration = 1100;
       var start = performance.now();
       (function tick(now) {
         var p = Math.min((now - start) / duration, 1);
         var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(target * eased);
+        el.textContent = format(Math.round(target * eased));
         if (p < 1) requestAnimationFrame(tick);
       })(start);
     }
