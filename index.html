@@ -78,8 +78,8 @@
 
     <nav class="nav" id="nav" aria-label="Основная навигация">
       <a href="#services">Услуги</a>
+      <a href="#prices">Цены</a>
       <a href="#languages">Языки</a>
-      <a href="#documents">Документы</a>
       <a href="#process">Как работаем</a>
       <a href="#faq">Вопросы</a>
       <a href="#contacts">Контакты</a>
@@ -222,7 +222,7 @@
 
           <p class="form__policy">
             Нажимая кнопку, вы соглашаетесь с
-            <button type="button" class="link js-open-policy">политикой конфиденциальности</button>.
+            <a class="link" href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a>.
           </p>
 
           <div class="form__success" hidden>
@@ -299,6 +299,34 @@
     <div class="cards">
       <article class="card js-tilt" data-reveal>
         <span class="card__icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h9l5 5v11H5z"/><path d="M14 4v5h5"/><path d="M9 12h6M9 16h4"/></svg>
+        </span>
+        <h3 class="card__title">Письменный перевод</h3>
+        <p class="card__text">
+          Документы, договоры, тексты, аудиозаписи и видеоматериалы. При необходимости
+          выполняем вёрстку и печать готового перевода.
+        </p>
+        <button class="card__link js-open-modal" type="button" data-service="Письменный перевод">
+          Узнать стоимость <svg class="ic" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </button>
+      </article>
+
+      <article class="card js-tilt" data-reveal data-delay="80">
+        <span class="card__icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z"/><path d="M6 11a6 6 0 0 0 12 0M12 18v3"/></svg>
+        </span>
+        <h3 class="card__title">Устный перевод</h3>
+        <p class="card__text">
+          Последовательный и синхронный перевод. Сопровождаем международные выставки,
+          семинары и переговоры.
+        </p>
+        <button class="card__link js-open-modal" type="button" data-service="Устный перевод">
+          Узнать стоимость <svg class="ic" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </button>
+      </article>
+
+      <article class="card js-tilt" data-reveal data-delay="160">
+        <span class="card__icon">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 13h5M10 17h3"/><circle cx="16.5" cy="16.5" r="3.5" fill="none"/></svg>
         </span>
         <h3 class="card__title">Нотариальный перевод</h3>
@@ -311,7 +339,7 @@
         </button>
       </article>
 
-      <article class="card js-tilt" data-reveal data-delay="80">
+      <article class="card js-tilt" data-reveal>
         <span class="card__icon">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="6"/><path d="m8.5 15-1.5 6 5-2.5 5 2.5-1.5-6"/><path d="M10 10h4M12 8v4"/></svg>
         </span>
@@ -325,7 +353,7 @@
         </button>
       </article>
 
-      <article class="card js-tilt" data-reveal data-delay="160">
+      <article class="card js-tilt" data-reveal data-delay="80">
         <span class="card__icon">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.4 8.3 8 9 4.6-.7 8-4.6 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
         </span>
@@ -339,7 +367,7 @@
         </button>
       </article>
 
-      <article class="card js-tilt" data-reveal>
+      <article class="card js-tilt" data-reveal data-delay="160">
         <span class="card__icon">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="11" height="14" rx="2"/><path d="M8 21h9a2 2 0 0 0 2-2V8"/><path d="M8 8h4M8 12h3"/></svg>
         </span>
@@ -353,7 +381,7 @@
         </button>
       </article>
 
-      <article class="card js-tilt" data-reveal data-delay="80">
+      <article class="card js-tilt" data-reveal>
         <span class="card__icon">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V4h12v5"/><rect x="3" y="9" width="18" height="7" rx="2"/><path d="M6 16h12v5H6z"/></svg>
         </span>
@@ -392,6 +420,57 @@
         <svg class="ic" aria-hidden="true" viewBox="0 0 24 24"><path d="M6.5 3.5 9 4l1.2 3.4-2 1.6a11.5 11.5 0 0 0 6.8 6.8l1.6-2L20 15l.5 2.5c0 1.7-1.4 3-3.1 2.8C10 19.5 4.5 14 3.7 6.6 3.5 4.9 4.8 3.5 6.5 3.5Z"/></svg>
         +7 (977) 782-25-55
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЦЕНЫ ============ -->
+<section class="section section--cream" id="prices">
+  <div class="container">
+    <header class="section__head">
+      <p class="section__eyebrow" data-reveal>Цены</p>
+      <h2 class="section__title" data-reveal data-delay="60">Сколько стоит перевод</h2>
+      <p class="section__lead" data-reveal data-delay="120">
+        Перевод с редких языков обходится дороже, как и работа со специализированными
+        текстами. Точную сумму назовём после того, как посмотрим документ.
+      </p>
+    </header>
+
+    <div class="pricing">
+      <article class="pricing__card" data-reveal>
+        <h3 class="pricing__title">Письменный перевод</h3>
+        <p class="pricing__note">за страницу</p>
+        <ul class="pricing__list">
+          <li><span>Славянские языки</span><b>от 299 ₽</b></li>
+          <li><span>Европейские языки</span><b>от 399 ₽</b></li>
+          <li><span>Восточные языки</span><b>от 499 ₽</b></li>
+        </ul>
+      </article>
+
+      <article class="pricing__card pricing__card--accent" data-reveal data-delay="80">
+        <h3 class="pricing__title">Личные документы</h3>
+        <p class="pricing__note">за документ</p>
+        <ul class="pricing__list">
+          <li><span>Паспорт, диплом</span><b>от 999 ₽</b></li>
+          <li><span>Другие личные документы</span><b>от 999 ₽</b></li>
+          <li><span>Апостиль и легализация</span><b>от 3 500 ₽</b></li>
+        </ul>
+      </article>
+
+      <article class="pricing__card" data-reveal data-delay="160">
+        <h3 class="pricing__title">Устный перевод</h3>
+        <p class="pricing__note">за час работы</p>
+        <ul class="pricing__list">
+          <li><span>Славянские и европейские</span><b>от 1 500 ₽</b></li>
+          <li><span>Восточные языки</span><b>от 2 500 ₽</b></li>
+          <li><span>Синхронный перевод</span><b>от 4 000 ₽</b></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="pricing__cta" data-reveal>
+      <p>Пришлите документ — назовём точную цену и срок за 15 минут, бесплатно.</p>
+      <button class="btn btn--gold btn--lg js-open-modal" type="button">Рассчитать стоимость</button>
     </div>
   </div>
 </section>
@@ -514,6 +593,30 @@
   </div>
 </section>
 
+<!-- ============ О БЮРО ============ -->
+<section class="section" id="about">
+  <div class="container container--narrow">
+    <header class="section__head">
+      <p class="section__eyebrow" data-reveal>О бюро</p>
+      <h2 class="section__title" data-reveal data-delay="60">Профессиональное бюро<br>переводов AD VERBUM</h2>
+    </header>
+
+    <div class="about" data-reveal data-delay="120">
+      <p>
+        Наша специализация — устный и письменный перевод документов, текстов, аудиозаписей
+        и видеоматериалов. Также мы помогаем в проведении международных выставок, семинаров
+        и переговоров. За время существования бюро мы значительно выросли, достигли многих
+        успехов и накопили немалый опыт в переводах разных направлений.
+      </p>
+      <p>
+        Вы можете в любой момент связаться с нашим менеджером, получить консультацию, внести
+        изменения в заказ или добавить дополнительные материалы на перевод. Все персональные
+        данные, которые передаёт клиент, защищены и обрабатываются конфиденциально.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ ДОСТАВКА И ОПЛАТА ============ -->
 <section class="section section--cream">
   <div class="container">
@@ -582,8 +685,10 @@
       <details class="faq__item" data-reveal>
         <summary>Сколько стоит нотариальный перевод?</summary>
         <div class="faq__body"><p>
-          Стоимость зависит от языка, объёма документа и срочности. Пришлите фото или скан —
-          рассчитаем точную цену бесплатно за 15 минут и зафиксируем её до начала работы.
+          Перевод паспорта или диплома — от 999 ₽ за документ, апостиль и легализация —
+          от 3 500 ₽. Итоговая сумма зависит от языка, объёма и срочности: пришлите фото
+          или скан, рассчитаем точную цену бесплатно за 15 минут и зафиксируем её
+          до начала работы. Все цены — в разделе <a href="#prices">«Цены»</a>.
         </p></div>
       </details>
       <details class="faq__item" data-reveal data-delay="60">
@@ -760,7 +865,7 @@
 
   <div class="container footer__bottom">
     <p>© <span id="year">2026</span> AD VERBUM · Бюро переводов</p>
-    <button class="link js-open-policy" type="button">Политика конфиденциальности</button>
+    <a class="link" href="privacy.html">Политика конфиденциальности</a>
   </div>
 </footer>
 
@@ -777,6 +882,16 @@
   <button class="floatie floatie--top" id="toTop" type="button" aria-label="Наверх">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg>
   </button>
+</div>
+
+<!-- Уведомление об обработке данных -->
+<div class="cookie" id="cookieNotice" role="region" aria-label="Уведомление об обработке данных">
+  <p class="cookie__text">
+    Мы используем файлы cookie и сервис веб-аналитики, чтобы понимать, как посетители
+    пользуются сайтом. Продолжая просмотр, вы соглашаетесь с
+    <a href="privacy.html">политикой конфиденциальности</a>.
+  </p>
+  <button class="cookie__btn" type="button">Понятно</button>
 </div>
 
 <!-- Мобильная нижняя панель -->
@@ -848,7 +963,7 @@
 
         <p class="form__policy">
           Нажимая кнопку, вы соглашаетесь с
-          <button type="button" class="link js-open-policy">политикой конфиденциальности</button>.
+          <a class="link" href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a>.
         </p>
 
         <div class="form__success" hidden>
@@ -858,27 +973,6 @@
         </div>
       </form>
     </div>
-  </div>
-</div>
-
-<!-- ============ МОДАЛЬНОЕ ОКНО ПОЛИТИКИ ============ -->
-<div class="modal" id="policy" hidden>
-  <div class="modal__backdrop js-close-modal"></div>
-  <div class="modal__dialog modal__dialog--text" role="dialog" aria-modal="true" aria-labelledby="policyTitle">
-    <button class="modal__close js-close-modal" type="button" aria-label="Закрыть">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
-    </button>
-    <!-- ЗАПОЛНИТЬ: проверьте текст политики у юриста перед публикацией -->
-    <h2 id="policyTitle">Политика конфиденциальности</h2>
-    <p>Отправляя форму на сайте adverbum.ru, вы даёте согласие на обработку персональных данных
-      (имя, номер телефона, адрес электронной почты, содержимое приложенных файлов)
-      в соответствии с Федеральным законом №152-ФЗ «О персональных данных».</p>
-    <p>Данные используются исключительно для связи с вами, расчёта стоимости и выполнения заказа.
-      Мы не передаём их третьим лицам, за исключением случаев, предусмотренных законодательством
-      Российской Федерации, и храним не дольше, чем это необходимо для оказания услуги.</p>
-    <p>Отозвать согласие можно в любой момент, написав на
-      <a href="mailto:buroadverbum@yandex.ru">buroadverbum@yandex.ru</a>
-      или позвонив по телефону <a href="tel:+79777822555">+7 (977) 782-25-55</a>.</p>
   </div>
 </div>
 

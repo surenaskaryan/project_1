@@ -337,12 +337,6 @@
         open('modal', opener.dataset.service);
         return;
       }
-      var policy = e.target.closest('.js-open-policy');
-      if (policy) {
-        e.preventDefault();
-        open('policy');
-        return;
-      }
       if (e.target.closest('.js-close-modal')) closeAll();
     });
 
@@ -526,6 +520,29 @@
         }
       });
     });
+  })();
+
+  /* ================= Уведомление об обработке данных ================= */
+  (function cookieNotice() {
+    var box = $('#cookieNotice');
+    if (!box) return;
+
+    // Согласие помним в браузере посетителя, на сервер ничего не уходит.
+    // Если хранилище закрыто (приватный режим) — показываем уведомление снова.
+    var KEY = 'adverbum-privacy-ack';
+    var accepted = false;
+    try { accepted = localStorage.getItem(KEY) === 'y'; } catch (err) { /* хранилище закрыто */ }
+    if (accepted) return;
+
+    setTimeout(function () { box.classList.add('is-shown'); }, 1200);
+
+    var btn = $('.cookie__btn', box);
+    if (btn) {
+      btn.addEventListener('click', function () {
+        box.classList.remove('is-shown');
+        try { localStorage.setItem(KEY, 'y'); } catch (err) { /* не страшно */ }
+      });
+    }
   })();
 
   /* ================= Мелочи ================= */
