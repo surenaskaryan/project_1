@@ -100,12 +100,11 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 }
 
 /* ============ ОБЛОЖКА ============ */
+/* На исходном сайте обложка шла без затемнения — фото показываем как есть */
 .cover{
   position:relative;min-height:60vh;display:flex;align-items:center;justify-content:center;
   background:#2b2d33 center/cover no-repeat;
-  background-image:
-    linear-gradient(135deg,rgba(43,45,51,.35),rgba(43,45,51,.55)),
-    url('../assets/cover.jpg');
+  background-image:url('../assets/cover.jpg');
 }
 .cover__intro{padding:56px 0 0;text-align:center}
 .cover__avatar{
@@ -192,9 +191,10 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 .numbers{
   position:relative;color:#fff;text-align:center;
   padding:clamp(64px,9vw,120px) 0;
+  /* фото светлое, под белый текст нужна заливка плотнее исходных 0.8 */
   background:#4d4742 center/cover no-repeat;
   background-image:
-    linear-gradient(rgba(77,71,66,.8),rgba(77,71,66,.8)),
+    linear-gradient(rgba(68,62,57,.88),rgba(68,62,57,.88)),
     url('../assets/numbers.jpg');
 }
 .numbers__title{font-size:clamp(26px,3.4vw,38px);margin-bottom:clamp(32px,5vw,56px)}
