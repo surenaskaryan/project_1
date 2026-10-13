@@ -44,4 +44,26 @@
 
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
+
+  // Уведомление об обработке данных. Согласие помним в браузере посетителя,
+  // на сервер ничего не уходит. Если хранилище недоступно (приватный режим,
+  // запрет на cookie) — просто показываем уведомление каждый раз.
+  var cookie = document.getElementById('cookieNotice');
+  if (cookie) {
+    var KEY = 'adverbum-privacy-ack';
+    var accepted = false;
+    try { accepted = localStorage.getItem(KEY) === 'y'; } catch (e) { /* хранилище закрыто */ }
+
+    if (!accepted) {
+      setTimeout(function () { cookie.classList.add('is-shown'); }, 900);
+    }
+
+    var btn = cookie.querySelector('.cookie__btn');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        cookie.classList.remove('is-shown');
+        try { localStorage.setItem(KEY, 'y'); } catch (e) { /* не страшно */ }
+      });
+    }
+  }
 })();

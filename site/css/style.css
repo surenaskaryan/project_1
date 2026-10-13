@@ -291,6 +291,60 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
   color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.4);
 }
 .connect__back:hover{color:#fff}
+.connect__legal{margin-top:20px;font-size:14px}
+.connect__legal a{color:rgba(255,255,255,.65);text-decoration:underline;text-underline-offset:3px}
+.connect__legal a:hover{color:#fff}
+
+/* ============ ПРАВОВАЯ СТРАНИЦА ============ */
+.legal{max-width:760px;margin:0 auto}
+.legal__title{font-size:clamp(26px,3.4vw,36px);margin-bottom:10px}
+.legal__date{color:var(--muted);font-size:15px;margin-bottom:40px}
+.legal h2{
+  font-size:21px;margin:40px 0 14px;padding-top:28px;
+  border-top:1px solid var(--line);
+}
+.legal h2:first-of-type{border-top:0;padding-top:0;margin-top:32px}
+.legal p{margin-bottom:16px}
+.legal__list{margin:0 0 20px;padding-left:4px}
+.legal__list li{position:relative;padding-left:22px;margin-bottom:9px}
+.legal__list li::before{
+  content:"";position:absolute;left:0;top:.72em;
+  width:7px;height:7px;border-radius:50%;background:var(--accent);
+}
+.legal a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.legal a:hover{color:var(--accent-dark)}
+.legal mark{
+  background:#fff3cd;color:#664d03;padding:2px 7px;border-radius:4px;
+  font-weight:600;box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+.legal__back{margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+.footer__inner a{color:var(--accent)}
+.footer__inner a:hover{text-decoration:underline}
+
+/* ============ УВЕДОМЛЕНИЕ О COOKIE ============ */
+.cookie{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:60;
+  display:none;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between;
+  max-width:860px;margin:0 auto;padding:18px 22px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:0 16px 40px -18px rgba(0,0,0,.4);
+  animation:cookieIn .4s var(--ease) both;
+}
+.cookie.is-shown{display:flex}
+@keyframes cookieIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.cookie__text{flex:1 1 380px;font-size:14.5px;line-height:1.55;color:var(--muted);margin:0}
+.cookie__text a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.cookie__btn{
+  flex:none;min-height:44px;padding:11px 28px;border-radius:7px;
+  background:var(--accent);color:#fff;font-weight:600;
+  transition:background-color .25s var(--ease),transform .25s var(--ease);
+}
+.cookie__btn:hover{background:var(--accent-dark);transform:translateY(-2px)}
+@media (max-width:620px){
+  .cookie{left:10px;right:10px;bottom:10px;padding:16px;gap:14px}
+  .cookie__btn{width:100%}
+  .cookie__text{font-size:14px}
+}
 
 /* ============ КНОПКА «НАВЕРХ» ============ */
 .to-top{
